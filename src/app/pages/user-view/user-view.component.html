@@ -1,0 +1,10 @@
+<section>
+  <article>
+    <div class="container-wrapper">
+      <nav>
+        <a class="nav-button" routerLink="user-list">Create User</a>
+      </nav>
+      <app-table [data]="data$ | async" (emitUser)="selectedUser($event)" />
+    </div>
+  </article>
+</section>

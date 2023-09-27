@@ -1,0 +1,21 @@
+section {
+  height: 100vh;
+  width: 100%;
+  background-color: #EEF0F8;
+  padding-top: 50px;
+}
+
+section nav {
+  display: flex;
+  justify-content: right;
+  padding-bottom: 15px;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+}
+
+.container-wrapper {
+  width: 85%;
+}

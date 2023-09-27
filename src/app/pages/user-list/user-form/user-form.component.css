@@ -1,0 +1,54 @@
+.user-form-container {
+  display: flex;
+  background-color: #fff;
+  padding: 0 20px 20px 20px;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-form-header {
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  width: 500px;
+  margin: 5px 0;
+}
+
+label {
+  padding-bottom: 5px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+}
+
+.btn {
+  width: 90px;
+  border: none;
+  padding: 10px 25px;
+  box-shadow: 0 5px 8px #F4468229;
+  color: #fff;
+  border-radius: 6px;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.btn-remove {
+  background-color: #F44682;
+}
+
+.btn-create {
+  background-color: #2E8FF0;
+}
+
+.close-icon {
+  cursor: pointer;
+}

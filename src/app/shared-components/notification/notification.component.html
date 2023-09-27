@@ -1,0 +1,7 @@
+<ng-container *ngIf="isVisible">
+  <div [ngClass]="setNotificationClass(notification.type)"
+       *ngFor="let notification of (notifications$ | async)"
+  >
+    {{ notification?.message }}
+  </div>
+</ng-container>

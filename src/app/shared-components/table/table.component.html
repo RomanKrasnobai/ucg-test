@@ -1,0 +1,19 @@
+<table *ngIf="data?.length; else emptyState">
+  <tr>
+    <th *ngFor="let header of tableHeaders">
+      {{ header }}
+    </th>
+  </tr>
+
+  <tr *ngFor="let user of data" (click)="selectedUser(user)">
+    <td>{{ user.username }}</td>
+    <td>{{ user.firstName }}</td>
+    <td>{{ user.lastName }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.type }}</td>
+  </tr>
+</table>
+
+<ng-template #emptyState>
+  <p>No items available</p>
+</ng-template>

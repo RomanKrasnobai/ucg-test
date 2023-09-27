@@ -1,0 +1,25 @@
+.success {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: 1px solid #479e4c;
+  border-radius: 5px;
+  background-color: #66BB6A;
+  padding: 10px 90px 10px 20px;
+  box-shadow: 7px 6px 19px -4px rgba(0,0,0,0.75);
+  height: 25px;
+  color: #fff;
+}
+
+.failed {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  border: 1px solid #eb608a;
+  border-radius: 5px;
+  background-color: #EF7DA0;
+  padding: 10px 90px 10px 20px;
+  box-shadow: 7px 6px 19px -4px rgba(0,0,0,0.75);
+  height: 25px;
+  color: #fff;
+}

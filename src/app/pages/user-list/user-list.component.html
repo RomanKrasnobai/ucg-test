@@ -1,0 +1,13 @@
+<section class="user-list-container">
+  <app-notification />
+
+  <article>
+    <app-table [data]="(users$ | async)"
+               (emitUser)="selectedUser($event)"
+    />
+
+    <app-user-form (saveUserForm)="onSavedUserForm($event)"
+                   (removedUser)="removeUser($event)"
+    />
+  </article>
+</section>

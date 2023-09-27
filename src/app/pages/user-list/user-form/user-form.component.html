@@ -1,0 +1,47 @@
+<section class="user-form-container">
+  <form class="user-form"
+        [formGroup]="form"
+        (ngSubmit)="saveForm()"
+  >
+    <div class="user-form-header">
+      {{ form.get('firstName')?.value }} {{ form.get('lastName')?.value }}
+    </div>
+
+    <label>Username*</label>
+    <input formControlName="username" required>
+
+    <label>First Name*</label>
+    <input formControlName="firstName" required>
+
+    <label>Last Name*</label>
+    <input formControlName="lastName" required>
+
+    <label>Email*</label>
+    <input type="email" formControlName="email" required>
+
+    <label>Type*</label>
+    <select formControlName="type" (change)="changedOption($event)" required>
+      <option *ngFor="let option of selectOption">
+        {{ option }}
+      </option>
+    </select>
+
+    <label>Password*</label>
+    <input type="password" formControlName="password" required>
+
+    <label>Repeat Password*</label>
+    <input type="password" formControlName="repeatPassword" required>
+
+    <div class="buttons-container">
+      <button type="button" class="btn btn-remove" (click)="removeUser()">Delete</button>
+      <button type="submit" class="btn btn-create">Save</button>
+    </div>
+  </form>
+
+  <div class="close-icon"
+       routerLink="/"
+       title="Close"
+       (click)="clearForm()"
+  >X</div>
+</section>
+
