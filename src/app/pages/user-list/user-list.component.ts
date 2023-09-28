@@ -41,6 +41,5 @@ export class UserListComponent implements OnInit {
 
   selectedUser(user: User): void {
     this.userService.selectedUser$.next(user);
-    // this.cd.detectChanges();
   }
 }

@@ -38,6 +38,7 @@ export class UserFormComponent implements OnInit {
   selectOption = ['driver', 'administrator'];
 
   userService = inject(UserService);
+
   private onDestroyService = inject(OnDestroyService);
   private cd = inject(ChangeDetectorRef);
 
@@ -60,8 +61,12 @@ export class UserFormComponent implements OnInit {
   }
 
   saveForm(): void {
-    if (this.form.valid) {
-      this.saveUserForm.emit(this.form.getRawValue());
+    console.log(this.form)
+    if (this.form.invalid) {
+      return;
+    }
+    this.saveUserForm.emit(this.form.getRawValue());
+    if (this.form.get('password')?.value === this.form.get('repeatPassword')?.value) {
       this.form.reset();
       this.form.get('type')?.patchValue(this.selectOption[0]);
     }
