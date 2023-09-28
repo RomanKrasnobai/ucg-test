@@ -11,7 +11,6 @@ import {UserService} from "../../../services/user.service";
 import {filter, takeUntil} from "rxjs";
 import {OnDestroyService} from "../../../services/on-destroy.service";
 import {RouterLink} from "@angular/router";
-import {passwordMatchValidator} from "../../../helpers/custom-validators/password-match-validator";
 import {ControlErrorComponent} from "../../../shared-components/control-error/control-error.component";
 import {ControlErrorsDirective} from "../../../directives/control-errors.directive";
 import {ControlErrorContainerDirective} from "../../../directives/control-error-container.directive";
@@ -95,7 +94,7 @@ export class UserFormComponent implements OnInit {
         { nonNullable: true, validators: [Validators.required] }
       ),
       email: new FormControl<string>('',
-        { nonNullable: true, validators: [Validators.required] }
+        { nonNullable: true, validators: [Validators.email, Validators.required] }
       ),
       type: new FormControl<string>('',
         { nonNullable: true, validators: [Validators.required] }
@@ -103,16 +102,13 @@ export class UserFormComponent implements OnInit {
       password: new FormControl<string>('',
         { nonNullable: true, validators: [
             Validators.minLength(8),
-            Validators.pattern('[0-9]+[A-Z]?'),
+            Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$'),
             Validators.required
           ] }
       ),
       repeatPassword: new FormControl<string>('',
         { nonNullable: true, validators: [Validators.required] }
-      ),
-    }, {
-        updateOn: 'blur',
-        validators: [passwordMatchValidator],
-    });
+      )}
+    );
   }
 }
