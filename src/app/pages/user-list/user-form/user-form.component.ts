@@ -61,7 +61,6 @@ export class UserFormComponent implements OnInit {
   }
 
   saveForm(): void {
-    console.log(this.form)
     if (this.form.invalid) {
       return;
     }

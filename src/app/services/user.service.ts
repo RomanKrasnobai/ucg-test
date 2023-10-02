@@ -13,19 +13,19 @@ export class UserService {
   private notificationService = inject(NotificationService);
 
   users$: BehaviorSubject<User[]> =
-    new BehaviorSubject<User[]>(this.storageService.getItem(Constants.USERS_LIST_KEY));
+    new BehaviorSubject<User[]>([]);
 
   selectedUser$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
   saveUser(user: User, selectedUser: User | null): void {
     if (!selectedUser) {
       const searchedUser = this.users$.getValue().find((userItem: User) =>
-        userItem.username.toLowerCase() === user.username.toLowerCase());
+          userItem.username.toLowerCase() === user.username.toLowerCase());
 
       if (searchedUser?.username.toLowerCase() === user.username.toLowerCase()) {
         this.notificationService.emitNotification(
-          Constants.FAILED_NOTIFICATION_TYPE,
-          'The user is already exists!'
+            Constants.FAILED_NOTIFICATION_TYPE,
+            'The user is already exists!'
         );
         return;
       }
@@ -40,6 +40,7 @@ export class UserService {
           Constants.SUCCESS_NOTIFICATION_TYPE,
           `New user ${user.username} was created!`
         );
+        return;
       } else {
         this.notificationService.emitNotification(
           Constants.FAILED_NOTIFICATION_TYPE,
